@@ -1,6 +1,9 @@
 package env
 
-import "github.com/aws/aws-cdk-go/awscdk/v2"
+import (
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/jsii-runtime-go"
+)
 
 type AppStackProps struct {
 	awscdk.StackProps
@@ -11,11 +14,17 @@ type AppNestedStackProps struct {
 }
 
 var StackProps = &AppStackProps{
-	StackProps: awscdk.StackProps{Env: env()},
+	StackProps: awscdk.StackProps{Env: env(), Tags: tags()},
 }
 
 var NestedStackProps = &AppNestedStackProps{
 	NestedStackProps: awscdk.NestedStackProps{},
+}
+
+func tags() *map[string]*string {
+	return &map[string]*string{
+		"env": jsii.String("dev"),
+	}
 }
 
 // env determines the AWS environment (account+region) in which our stack is to
