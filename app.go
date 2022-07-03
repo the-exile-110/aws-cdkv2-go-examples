@@ -1,8 +1,7 @@
 package main
 
 import (
-	"app/env"
-	"app/stacks"
+	"app/services"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	// "github.com/aws/jsii-runtime-go"
 )
@@ -10,7 +9,7 @@ import (
 func main() {
 	app := awscdk.NewApp(nil)
 
-	stacks.EksStack(app, "AppStack", (*stacks.AppStackProps)(env.Props))
+	services.TestRootStack(app, "AppStack")
 
 	app.Synth(nil)
 }

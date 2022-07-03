@@ -6,8 +6,16 @@ type AppStackProps struct {
 	awscdk.StackProps
 }
 
-var Props = &AppStackProps{
+type AppNestedStackProps struct {
+	awscdk.NestedStackProps
+}
+
+var StackProps = &AppStackProps{
 	StackProps: awscdk.StackProps{Env: env()},
+}
+
+var NestedStackProps = &AppNestedStackProps{
+	NestedStackProps: awscdk.NestedStackProps{},
 }
 
 // env determines the AWS environment (account+region) in which our stack is to
