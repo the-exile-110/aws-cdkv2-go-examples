@@ -1,8 +1,10 @@
 package nested_stacks
 
 import (
+	"app/env"
 	"app/models"
 	"app/modules"
+	"fmt"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/jsii-runtime-go"
@@ -11,7 +13,7 @@ import (
 func (s NestedStack) VpcStack() awsec2.Vpc {
 	nestedStack := awscdk.NewNestedStack(s.Scope, s.Id, s.Env)
 
-	vpcName := "DemoVpc"
+	vpcName := fmt.Sprintf("%s-vpc", env.ProjectName)
 	vpcCidr := "10.0.0.0/16"
 
 	vpcProps := models.Vpc{
