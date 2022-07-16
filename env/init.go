@@ -1,23 +1,20 @@
 package env
 
 import (
+	"app/models"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/jsii-runtime-go"
 )
 
-type AppStackProps struct {
-	awscdk.StackProps
-}
+const (
+	ProjectName = "cdk-example-app"
+)
 
-type AppNestedStackProps struct {
-	awscdk.NestedStackProps
-}
-
-var StackProps = &AppStackProps{
+var StackProps = &models.AppStackProps{
 	StackProps: awscdk.StackProps{Env: env(), Tags: tags()},
 }
 
-var NestedStackProps = &AppNestedStackProps{
+var NestedStackProps = &models.AppNestedStackProps{
 	NestedStackProps: awscdk.NestedStackProps{},
 }
 
@@ -34,7 +31,7 @@ func env() *awscdk.Environment {
 	// Account/Region-dependent features and context lookups will not work, but a
 	// single synthesized template can be deployed anywhere.
 	//---------------------------------------------------------------------------
-	return nil
+	return &awscdk.Environment{}
 
 	// Uncomment if you know exactly what account and region you want to deploy
 	// the stack to. This is the recommendation for production stacks.

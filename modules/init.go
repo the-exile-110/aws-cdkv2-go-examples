@@ -6,7 +6,7 @@ type ModuleService struct {
 	NestedStack awscdk.NestedStack
 }
 
-func CreateModuleService(nestedStack awscdk.NestedStack) *ModuleService {
+func CreateModule(nestedStack awscdk.NestedStack) *ModuleService {
 	return &ModuleService{
 		NestedStack: nestedStack,
 	}
