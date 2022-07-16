@@ -9,7 +9,7 @@ import (
 )
 
 func (s NestedStack) VpcStack() awsec2.Vpc {
-	nestedStack := awscdk.NewNestedStack(s.Scope, &s.Id, &s.Env)
+	nestedStack := awscdk.NewNestedStack(s.Scope, s.Id, s.Env)
 
 	vpcName := "DemoVpc"
 	vpcCidr := "10.0.0.0/16"

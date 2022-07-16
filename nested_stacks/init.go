@@ -8,14 +8,14 @@ import (
 
 type NestedStack struct {
 	Scope constructs.Construct
-	Id    string
-	Env   awscdk.NestedStackProps
+	Id    *string
+	Env   *awscdk.NestedStackProps
 }
 
 func CreateNestedStack(scope constructs.Construct, id string) *NestedStack {
 	return &NestedStack{
 		Scope: scope,
-		Id:    id,
-		Env:   env.NestedStackProps.NestedStackProps,
+		Id:    &id,
+		Env:   &env.NestedStackProps.NestedStackProps,
 	}
 }

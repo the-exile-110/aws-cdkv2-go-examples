@@ -8,14 +8,14 @@ import (
 
 type RootStack struct {
 	Scope constructs.Construct
-	Id    string
-	Env   awscdk.StackProps
+	Id    *string
+	Env   *awscdk.StackProps
 }
 
 func CreateRootStack(scope constructs.Construct, id string) *RootStack {
 	return &RootStack{
 		Scope: scope,
-		Id:    id,
-		Env:   env.StackProps.StackProps,
+		Id:    &id,
+		Env:   &env.StackProps.StackProps,
 	}
 }
