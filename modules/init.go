@@ -2,12 +2,12 @@ package modules
 
 import "github.com/aws/aws-cdk-go/awscdk/v2"
 
-type ModuleService struct {
+type Module struct {
 	NestedStack awscdk.NestedStack
 }
 
-func CreateModule(nestedStack awscdk.NestedStack) *ModuleService {
-	return &ModuleService{
+func NewModule(nestedStack awscdk.NestedStack) *Module {
+	return &Module{
 		NestedStack: nestedStack,
 	}
 }

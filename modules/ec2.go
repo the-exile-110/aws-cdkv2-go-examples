@@ -8,7 +8,7 @@ import (
 	"github.com/aws/jsii-runtime-go"
 )
 
-func (s ModuleService) Vpc(props models.Vpc) ec2.Vpc {
+func (s Module) Vpc(props models.Vpc) ec2.Vpc {
 
 	vpc := ec2.NewVpc(s.NestedStack, jsii.String(*props.VpcName), &props.VpcProps)
 

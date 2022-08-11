@@ -39,7 +39,7 @@ func (s NestedStack) VpcStack() awsec2.Vpc {
 		UseVpcFlowLogToCloudWatch: false,
 		UseVpcFlowLogToS3:         false,
 	}
-	vpc := modules.CreateModule(nestedStack).Vpc(vpcProps)
+	vpc := modules.NewModule(nestedStack).Vpc(vpcProps)
 
 	return vpc
 }
